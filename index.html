@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relationship Agreement</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #faf9f7; color: #1a1a18; font-family: 'Jost', sans-serif; min-height: 100vh; padding: 3rem 1.5rem; }
+  .ra-wrap { max-width: 680px; margin: 0 auto; background: #fff; border: 0.5px solid #e0ddd6; border-radius: 12px; padding: 3rem; }
+  .ra-header { text-align: center; border-bottom: 0.5px solid #e0ddd6; padding-bottom: 2rem; margin-bottom: 2rem; }
+  .ra-title { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 400; letter-spacing: 0.04em; margin: 0 0 6px; }
+  .ra-subtitle { font-size: 12px; font-weight: 300; letter-spacing: 0.12em; text-transform: uppercase; color: #888780; margin-bottom: 6px; }
+  .ra-parties { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; margin-bottom: 2rem; }
+  .ra-party { background: #f6f5f1; border-radius: 8px; padding: 14px 16px; }
+  .ra-party-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #888780; margin-bottom: 6px; }
+  .ra-party-line { border: none; border-bottom: 0.5px solid #b4b2a9; width: 100%; background: none; font-family: 'Jost', sans-serif; font-size: 14px; color: #1a1a18; padding: 4px 0; outline: none; }
+  .ra-and { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-style: italic; color: #888780; }
+  .ra-section { margin-bottom: 1.75rem; }
+  .ra-section-title { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #888780; margin: 0 0 12px; display: flex; align-items: center; gap: 8px; }
+  .ra-section-title::after { content: ''; flex: 1; height: 0.5px; background: #e0ddd6; }
+  .ra-items { display: flex; flex-direction: column; gap: 8px; }
+  .ra-item { display: flex; align-items: flex-start; gap: 10px; background: #f6f5f1; border-radius: 8px; padding: 10px 14px; border: 0.5px solid #e0ddd6; }
+  .ra-item-num { font-size: 11px; font-weight: 500; color: #888780; min-width: 18px; padding-top: 2px; }
+  .ra-item-text { font-size: 14px; line-height: 1.6; flex: 1; }
+  .ra-item-text input { background: none; border: none; border-bottom: 0.5px dashed #b4b2a9; font-family: 'Jost', sans-serif; font-size: 14px; color: #1a1a18; padding: 0 2px; outline: none; width: 140px; }
+  .ra-sigs { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 2.5rem; padding-top: 2rem; border-top: 0.5px solid #e0ddd6; }
+  .ra-sig { display: flex; flex-direction: column; gap: 6px; }
+  .ra-sig-line { border: none; border-bottom: 0.5px solid #b4b2a9; height: 40px; background: none; display: block; width: 100%; }
+  .ra-sig-label { font-size: 11px; font-weight: 300; letter-spacing: 0.08em; color: #888780; }
+  .ra-date-row { display: flex; align-items: center; gap: 8px; margin-top: 1.5rem; font-size: 13px; color: #888780; flex-wrap: wrap; }
+  .ra-date-input { border: none; border-bottom: 0.5px solid #b4b2a9; background: none; font-family: 'Jost', sans-serif; font-size: 13px; color: #1a1a18; padding: 0 4px; outline: none; width: 140px; }
+  .ra-footer { text-align: center; margin-top: 2rem; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: #888780; }
+  .ra-add-btn { font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 400; background: none; border: 0.5px dashed #b4b2a9; color: #888780; border-radius: 8px; padding: 6px 14px; cursor: pointer; margin-top: 6px; letter-spacing: 0.05em; }
+  .ra-add-btn:hover { background: #f6f5f1; }
+  .ra-editable { background: none; border: none; border-bottom: 0.5px dashed #b4b2a9; font-family: 'Jost', sans-serif; font-size: 14px; color: #1a1a18; padding: 0 2px; outline: none; line-height: 1.6; width: 100%; }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .ra-wrap { border: none; padding: 2rem; }
+    .ra-add-btn { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="ra-wrap">
+  <div class="ra-header">
+    <p class="ra-subtitle">A mutual agreement between</p>
+    <h1 class="ra-title">Relationship Agreement</h1>
+  </div>
+
+  <div class="ra-parties">
+    <div class="ra-party">
+      <div class="ra-party-label">Partner One</div>
+      <input class="ra-party-line" placeholder="Full name" />
+    </div>
+    <div class="ra-and">&amp;</div>
+    <div class="ra-party">
+      <div class="ra-party-label">Partner Two</div>
+      <input class="ra-party-line" placeholder="Full name" />
+    </div>
+  </div>
+
+  <div class="ra-section">
+    <div class="ra-section-title">Values &amp; foundations</div>
+    <div class="ra-items" id="values-list">
+      <div class="ra-item"><span class="ra-item-num">1.</span><span class="ra-item-text">We commit to honesty and open communication in all matters.</span></div>
+      <div class="ra-item"><span class="ra-item-num">2.</span><span class="ra-item-text">We respect each other's individuality, personal space, and independence.</span></div>
+      <div class="ra-item"><span class="ra-item-num">3.</span><span class="ra-item-text">We approach conflict with patience and a willingness to understand before responding.</span></div>
+    </div>
+    <button class="ra-add-btn" onclick="addItem('values-list')">+ Add item</button>
+  </div>
+
+  <div class="ra-section">
+    <div class="ra-section-title">Communication</div>
+    <div class="ra-items" id="comms-list">
+      <div class="ra-item"><span class="ra-item-num">1.</span><span class="ra-item-text">We agree to check in with each other <input style="width:90px" placeholder="frequency" /> about how we're feeling in the relationship.</span></div>
+      <div class="ra-item"><span class="ra-item-num">2.</span><span class="ra-item-text">We will not go to bed angry — difficult conversations will be paused, not abandoned.</span></div>
+      <div class="ra-item"><span class="ra-item-num">3.</span><span class="ra-item-text">We will express appreciation and gratitude regularly, in both words and actions.</span></div>
+    </div>
+    <button class="ra-add-btn" onclick="addItem('comms-list')">+ Add item</button>
+  </div>
+
+  <div class="ra-section">
+    <div class="ra-section-title">Boundaries &amp; needs</div>
+    <div class="ra-items" id="boundaries-list">
+      <div class="ra-item"><span class="ra-item-num">1.</span><span class="ra-item-text">Each partner has the right to time alone without guilt or explanation.</span></div>
+      <div class="ra-item"><span class="ra-item-num">2.</span><span class="ra-item-text">Boundaries, once communicated, will be honoured without negotiation.</span></div>
+      <div class="ra-item"><span class="ra-item-num">3.</span><span class="ra-item-text">We acknowledge that needs evolve — this agreement may be revisited at any time.</span></div>
+    </div>
+    <button class="ra-add-btn" onclick="addItem('boundaries-list')">+ Add item</button>
+  </div>
+
+  <div class="ra-section">
+    <div class="ra-section-title">Shared life &amp; responsibilities</div>
+    <div class="ra-items" id="life-list">
+      <div class="ra-item"><span class="ra-item-num">1.</span><span class="ra-item-text">Household and financial responsibilities will be divided fairly and reviewed as circumstances change.</span></div>
+      <div class="ra-item"><span class="ra-item-num">2.</span><span class="ra-item-text">We will make major decisions — financial, residential, family — together and with mutual consent.</span></div>
+      <div class="ra-item"><span class="ra-item-num">3.</span><span class="ra-item-text">We will invest in experiences together — at least <input style="width:60px" placeholder="e.g. 1" /> dedicated date(s) per <input style="width:70px" placeholder="week/month" />.</span></div>
+    </div>
+    <button class="ra-add-btn" onclick="addItem('life-list')">+ Add item</button>
+  </div>
+
+  <div class="ra-section">
+    <div class="ra-section-title">Conflict resolution</div>
+    <div class="ra-items" id="conflict-list">
+      <div class="ra-item"><span class="ra-item-num">1.</span><span class="ra-item-text">We do not use insults, contempt, or stonewalling during disagreements.</span></div>
+      <div class="ra-item"><span class="ra-item-num">2.</span><span class="ra-item-text">We agree to seek mediation or couples counselling if issues persist without resolution.</span></div>
+    </div>
+    <button class="ra-add-btn" onclick="addItem('conflict-list')">+ Add item</button>
+  </div>
+
+  <div class="ra-section">
+    <div class="ra-section-title">Custom terms</div>
+    <div class="ra-items" id="custom-list">
+      <div class="ra-item"><span class="ra-item-num">1.</span><span class="ra-item-text"><input class="ra-editable" placeholder="Write your own term here..." /></span></div>
+    </div>
+    <button class="ra-add-btn" onclick="addCustomItem()">+ Add custom term</button>
+  </div>
+
+  <div class="ra-date-row">
+    <span>Entered into on</span>
+    <input class="ra-date-input" type="date" id="agree-date" />
+    <span>and subject to review on</span>
+    <input class="ra-date-input" type="date" id="review-date" />
+  </div>
+
+  <div class="ra-sigs">
+    <div class="ra-sig">
+      <div class="ra-sig-line"></div>
+      <div class="ra-sig-label">Signature — Partner One</div>
+    </div>
+    <div class="ra-sig">
+      <div class="ra-sig-line"></div>
+      <div class="ra-sig-label">Signature — Partner Two</div>
+    </div>
+  </div>
+
+  <div class="ra-footer">Made with intention, maintained with care.</div>
+</div>
+
+<script>
+  let counters = { 'values-list': 4, 'comms-list': 4, 'boundaries-list': 4, 'life-list': 4, 'conflict-list': 3 };
+
+  function addItem(listId) {
+    const list = document.getElementById(listId);
+    const n = counters[listId] || (list.children.length + 1);
+    const div = document.createElement('div');
+    div.className = 'ra-item';
+    div.innerHTML = `<span class="ra-item-num">${n}.</span><span class="ra-item-text"><input class="ra-editable" placeholder="Add your term..." /></span>`;
+    list.appendChild(div);
+    counters[listId] = n + 1;
+    div.querySelector('input').focus();
+  }
+
+  function addCustomItem() {
+    const list = document.getElementById('custom-list');
+    const n = list.children.length + 1;
+    const div = document.createElement('div');
+    div.className = 'ra-item';
+    div.innerHTML = `<span class="ra-item-num">${n}.</span><span class="ra-item-text"><input class="ra-editable" placeholder="Write your own term here..." /></span>`;
+    list.appendChild(div);
+    div.querySelector('input').focus();
+  }
+
+  const today = new Date();
+  document.getElementById('agree-date').valueAsDate = today;
+  const review = new Date(); review.setFullYear(review.getFullYear() + 1);
+  document.getElementById('review-date').valueAsDate = review;
+</script>
+</body>
+</html>
